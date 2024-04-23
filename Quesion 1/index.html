@@ -1,0 +1,158 @@
+<html>
+<head>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+
+</head>
+<body>
+
+<div class="container mt-5">
+
+<form>
+	<div class="form-group">
+		<label>Name</label>
+		<input class="form-control" id="name" type="name">
+	</div>
+
+		<div class="form-group">
+		<label>Phone Number</label>
+		<input class="form-control" id="phone" type="number" >
+	</div>
+
+	<div class="form-group">
+		<label>Email address</label>
+    <input type="email" class="form-control" id="email"  placeholder="Enter email">
+	</div>
+
+	<button type="submit" id="submit" class="btn btn-primary">Add Info</button>
+</form>
+
+
+<h2 class="text-center mt-5">Contact Information</h2>
+
+<input type="search" class="form-control mt-5 col-xl-4" id="search" name="" placeholder="search by phone number...">
+
+
+<table class="table mt-5" id="table">
+	<thead>
+	<tr>
+	<th scope="col">
+		Name
+	</th>
+		<th scope="col">
+		Phone
+	</th>
+		<th scope="col">
+		Email
+	</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>Zia</td>
+		<td>6410000</td>
+		<td>zia_six1nine@ymail.com</td>
+	</tr>
+		<tr>
+		<td>Example</td>
+		<td>24193515</td>
+		<td>example@gmail.com</td>
+	</tr>
+
+		</tr>
+		<tr>
+		<td>Example2</td>
+		<td>789456123</td>
+		<td>Example2@yahoo.com</td>
+	</tr>
+	</tbody>
+</table>
+</div>
+</body>
+<script type="text/javascript">
+
+
+
+$("#submit").on('click',function(){
+event.preventDefault();// Prevent the default form submission behavior
+const uName = $("#name").val().trim();
+
+const uPhone = $('#phone').val().trim();
+
+const uEmail = $("#email").val().trim();
+
+if(uName==='' || uPhone=== '' | uEmail===''){
+	alert('Fill the form to proceed')
+}
+
+else {
+const newRow = `<tr><td>${uName}</td> <td>${uPhone}</td> <td>${uEmail}</td> </tr>`
+
+$("#table tbody").append(newRow);
+
+alert("Info Added Successfully");
+}
+})
+
+
+	
+// Using JQuery method to get data from the input field
+// $("#search").on("keyup",function(){
+
+// 	var value = $(this).val();
+// 	//console.log(value);
+// 	searchTable(value);
+// })
+
+
+// Using JS method to get data from the input field
+
+document.getElementById("search").addEventListener("keyup",function(e){
+const inputValue = e.target.value
+	searchTable(inputValue);
+})
+
+// Create a arrow function called searchTable
+searchTable=(inputValue)=>{
+
+	const Table = document.getElementById('table');
+
+const TR = Array.from(Table.getElementsByTagName('tr'));
+
+
+TR.map((item)=>{
+
+	const td = item.getElementsByTagName('td')[1];
+
+	if(td){
+			const tdValue = td.textContent || td.innerHTML
+	
+			tdValue.includes(inputValue)? item.style.display=(""):item.style.display=("none")
+	}
+
+
+})
+
+}
+
+
+// Same thing we can do with for loop - Easy to understand the data flow
+
+// for (let i=0;i<tr.length;i++){
+
+// 	let td = tr[i].getElementsByTagName("td")[1];
+
+// 	if(td){
+
+// 		let tdValue = td.innerHTML || td.textContent
+
+// 		tdValue.includes(value)? tr[i].style.display="" : tr[i].style.display="none";
+// 		}
+// }
+
+
+</script>
+
+</html>
