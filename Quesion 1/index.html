@@ -25,6 +25,10 @@
 		<label>Email address</label>
     <input type="email" class="form-control" id="email"  placeholder="Enter email">
 	</div>
+	<div class="alert alert-danger collapse" role="alert">
+		
+		Please fill up all the form
+	</div>
 
 	<button type="submit" id="submit" class="btn btn-primary">Add Info</button>
 </form>
@@ -71,88 +75,6 @@
 </table>
 </div>
 </body>
-<script type="text/javascript">
-
-
-
-$("#submit").on('click',function(){
-event.preventDefault();// Prevent the default form submission behavior
-const uName = $("#name").val().trim();
-
-const uPhone = $('#phone').val().trim();
-
-const uEmail = $("#email").val().trim();
-
-if(uName==='' || uPhone=== '' | uEmail===''){
-	alert('Fill the form to proceed')
-}
-
-else {
-const newRow = `<tr><td>${uName}</td> <td>${uPhone}</td> <td>${uEmail}</td> </tr>`
-
-$("#table tbody").append(newRow);
-
-alert("Info Added Successfully");
-}
-})
-
-
-	
-// Using JQuery method to get data from the input field
-// $("#search").on("keyup",function(){
-
-// 	var value = $(this).val();
-// 	//console.log(value);
-// 	searchTable(value);
-// })
-
-
-// Using JS method to get data from the input field
-
-document.getElementById("search").addEventListener("keyup",function(e){
-const inputValue = e.target.value
-	searchTable(inputValue);
-})
-
-// Create a arrow function called searchTable
-searchTable=(inputValue)=>{
-
-	const Table = document.getElementById('table');
-
-const TR = Array.from(Table.getElementsByTagName('tr'));
-
-
-TR.map((item)=>{
-
-	const td = item.getElementsByTagName('td')[1];
-
-	if(td){
-			const tdValue = td.textContent || td.innerHTML
-	
-			tdValue.includes(inputValue)? item.style.display=(""):item.style.display=("none")
-	}
-
-
-})
-
-}
-
-
-// Same thing we can do with for loop - Easy to understand the data flow
-
-// for (let i=0;i<tr.length;i++){
-
-// 	let td = tr[i].getElementsByTagName("td")[1];
-
-// 	if(td){
-
-// 		let tdValue = td.innerHTML || td.textContent
-
-// 		tdValue.includes(value)? tr[i].style.display="" : tr[i].style.display="none";
-// 		}
-// }
-
-
-</script>
-
+<script type="text/javascript" src="saveInfo.js"></script>
+<script type="text/javascript" src="SearchTable.js"></script>
 </html>

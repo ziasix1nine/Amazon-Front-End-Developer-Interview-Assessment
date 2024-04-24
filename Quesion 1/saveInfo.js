@@ -7,10 +7,14 @@ const uPhone = $('#phone').val().trim();
 const uEmail = $("#email").val().trim();
 
 if(uName==='' || uPhone=== '' | uEmail===''){
-	alert('Fill the form to proceed')
+	
+	$(".alert").slideDown();
+	//alert('Fill the form to proceed')
 }
 
 else {
+	$(".alert").hide();
+	
 const newRow = `<tr><td>${uName}</td> <td>${uPhone}</td> <td>${uEmail}</td> </tr>`
 
 $("#table tbody").append(newRow);
