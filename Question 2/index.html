@@ -9,14 +9,14 @@
 
 <div class="content collapse">
 
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+	<p>Aaaaaaaaaaaaaaaaaaa</p>
 </div>
 
 <button type="button" class="collapsible">Open This pabel</button>
 
 <div class="content collapse">
 
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+	<p>BBBBBBBBBBBBBBBBB</p>
 </div>
 
 
@@ -24,7 +24,7 @@
 
 <div class="content collapse">
 
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+	<p>CCCCCCCCCCCCCCCCCC.</p>
 </div>
 
 
@@ -32,17 +32,24 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript">
 		
-		
+		$(document).ready(function(){
 
-		$(".collapsible").click(function(){
+
+
+
+				$(".collapsible").click(function(){
 			
 
 				const content = $(this).next();
-				console.log(content);
-					content.toggleClass("collapse");
+				content.toggleClass("collapse");
 
+				
 
+				})
+				$(".content:eq(0)").addClass("show")
 		})
+
+
 
 	</script>
 </body>
